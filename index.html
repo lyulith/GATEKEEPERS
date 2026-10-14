@@ -98,27 +98,114 @@
             </div>
           </div>
           <div class="setting-row countdown-row" id="countdown1Row" style="display:none;">
-            <label class="setting-label">Duration</label>
-            <div class="time-inputs">
-              <div class="time-field">
-                <input class="setting-input time-input" id="h1" type="number" min="0" max="99" value="0"
-                  placeholder="00" />
-                <span class="time-unit">h</span>
-              </div>
-              <span class="time-sep">:</span>
-              <div class="time-field">
-                <input class="setting-input time-input" id="m1" type="number" min="0" max="59" value="5"
-                  placeholder="00" />
-                <span class="time-unit">m</span>
-              </div>
-              <span class="time-sep">:</span>
-              <div class="time-field">
-                <input class="setting-input time-input" id="s1" type="number" min="0" max="59" value="0"
-                  placeholder="00" />
-                <span class="time-unit">s</span>
-              </div>
-            </div>
-          </div>
+
+  <div class="setting-row cycle-count-row">
+    <label class="setting-label" for="cycles1Count">Number of cycles</label>
+    <select class="setting-select" id="cycles1Count">
+      <option value="1">1 Cycle</option>
+      <option value="2">2 Cycles</option>
+      <option value="3">3 Cycles</option>
+      <option value="4" selected>4 Cycles</option>
+    </select>
+  </div>
+
+  <!-- Cycle 1: preserve the original input IDs -->
+  <div class="cycle-duration-row">
+    <label class="setting-label">Cycle 1</label>
+    <div class="time-inputs">
+      <div class="time-field">
+        <input class="setting-input time-input" id="h1"
+          type="number" min="0" max="99" value="0" placeholder="00"/>
+        <span class="time-unit">h</span>
+      </div>
+      <span class="time-sep">:</span>
+      <div class="time-field">
+        <input class="setting-input time-input" id="m1"
+          type="number" min="0" max="59" value="0" placeholder="00"/>
+        <span class="time-unit">m</span>
+      </div>
+      <span class="time-sep">:</span>
+      <div class="time-field">
+        <input class="setting-input time-input" id="s1"
+          type="number" min="0" max="59" value="50" placeholder="00"/>
+        <span class="time-unit">s</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cycle 2 -->
+  <div class="cycle-duration-row">
+    <label class="setting-label">Cycle 2</label>
+    <div class="time-inputs">
+      <div class="time-field">
+        <input class="setting-input time-input" id="h1c2"
+          type="number" min="0" max="99" value="0" placeholder="00"/>
+        <span class="time-unit">h</span>
+      </div>
+      <span class="time-sep">:</span>
+      <div class="time-field">
+        <input class="setting-input time-input" id="m1c2"
+          type="number" min="0" max="59" value="0" placeholder="00"/>
+        <span class="time-unit">m</span>
+      </div>
+      <span class="time-sep">:</span>
+      <div class="time-field">
+        <input class="setting-input time-input" id="s1c2"
+          type="number" min="0" max="59" value="45" placeholder="00"/>
+        <span class="time-unit">s</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cycle 3 -->
+  <div class="cycle-duration-row">
+    <label class="setting-label">Cycle 3</label>
+    <div class="time-inputs">
+      <div class="time-field">
+        <input class="setting-input time-input" id="h1c3"
+          type="number" min="0" max="99" value="0" placeholder="00"/>
+        <span class="time-unit">h</span>
+      </div>
+      <span class="time-sep">:</span>
+      <div class="time-field">
+        <input class="setting-input time-input" id="m1c3"
+          type="number" min="0" max="59" value="0" placeholder="00"/>
+        <span class="time-unit">m</span>
+      </div>
+      <span class="time-sep">:</span>
+      <div class="time-field">
+        <input class="setting-input time-input" id="s1c3"
+          type="number" min="0" max="59" value="40" placeholder="00"/>
+        <span class="time-unit">s</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cycle 4 -->
+  <div class="cycle-duration-row">
+    <label class="setting-label">Cycle 4</label>
+    <div class="time-inputs">
+      <div class="time-field">
+        <input class="setting-input time-input" id="h1c4"
+          type="number" min="0" max="99" value="0" placeholder="00"/>
+        <span class="time-unit">h</span>
+      </div>
+      <span class="time-sep">:</span>
+      <div class="time-field">
+        <input class="setting-input time-input" id="m1c4"
+          type="number" min="0" max="59" value="0" placeholder="00"/>
+        <span class="time-unit">m</span>
+      </div>
+      <span class="time-sep">:</span>
+      <div class="time-field">
+        <input class="setting-input time-input" id="s1c4"
+          type="number" min="0" max="59" value="35" placeholder="00"/>
+        <span class="time-unit">s</span>
+      </div>
+    </div>
+  </div>
+
+</div>
           <div class="setting-row">
             <label class="setting-label">Alert Sound</label>
             <select class="setting-select" id="sound1">
