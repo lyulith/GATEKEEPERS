@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Dual Timer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Settings Button -->
+  <button class="settings-btn" id="settingsBtn" aria-label="Settings">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <path
+        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <!-- Main App -->
+  <div class="app">
+
+    <div class="header">
+      <h1 class="app-title">GATEKEEPERS TIMERS</h1>
+    </div>
+
+    <!-- Timers Container -->
+    <div class="timers-container">
+
+      <!-- Timer 1 — Gatekeeper -->
+      <div class="timer-card timer-1" id="timerCard1">
+        <div class="timer-glow timer-glow-blue"></div>
+        <div class="robot-icon">
+          <img src="gatekeeper.png" alt="Gatekeeper" class="robot-image" id="img1" />
+        </div>
+        <div class="timer-label" id="timerLabel1">GATEKEEPER</div>
+        <div class="timer-display" id="timerDisplay1">00:00:00</div>
+        <div class="timer-status" id="timerStatus1">READY</div>
+      </div>
+
+      <!-- Timer 2 — Overload -->
+      <div class="timer-card timer-2" id="timerCard2">
+        <div class="timer-glow timer-glow-red"></div>
+        <div class="robot-icon">
+          <img src="overload.png" alt="Overload" class="robot-image" id="img2" />
+        </div>
+        <div class="timer-label" id="timerLabel2">OVERLOAD</div>
+        <div class="timer-display" id="timerDisplay2">00:00:00</div>
+        <div class="timer-status" id="timerStatus2">READY</div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button class="btn btn-start" id="startBtn">
+        <span class="btn-icon">▶</span>
+        <span class="btn-text">START</span>
+      </button>
+      <button class="btn btn-reset" id="resetBtn">
+        <span class="btn-icon">↺</span>
+        <span class="btn-text">RESET</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="settingsModal">
+      <div class="modal-header">
+        <h2 class="modal-title">SETTINGS</h2>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- Timer 1 Settings -->
+        <div class="setting-group">
+          <h3 class="setting-group-title timer-1-color">⬡ GATEKEEPER</h3>
+          <div class="setting-row">
+            <label class="setting-label">Name</label>
+            <input class="setting-input" id="name1Input" type="text" placeholder="Gatekeeper" maxlength="12" />
+          </div>
+          <div class="setting-row">
+            <label class="setting-label">Mode</label>
+            <div class="toggle-group">
+              <button class="toggle-btn active" id="mode1Count" data-timer="1" data-mode="countup">Count Up</button>
+              <button class="toggle-btn" id="mode1Down" data-timer="1" data-mode="countdown">Count Down</button>
+            </div>
+          </div>
+          <div class="setting-row countdown-row" id="countdown1Row" style="display:none;">
+            <label class="setting-label">Duration</label>
+            <div class="time-inputs">
+              <div class="time-field">
+                <input class="setting-input time-input" id="h1" type="number" min="0" max="99" value="0"
+                  placeholder="00" />
+                <span class="time-unit">h</span>
+              </div>
+              <span class="time-sep">:</span>
+              <div class="time-field">
+                <input class="setting-input time-input" id="m1" type="number" min="0" max="59" value="5"
+                  placeholder="00" />
+                <span class="time-unit">m</span>
+              </div>
+              <span class="time-sep">:</span>
+              <div class="time-field">
+                <input class="setting-input time-input" id="s1" type="number" min="0" max="59" value="0"
+                  placeholder="00" />
+                <span class="time-unit">s</span>
+              </div>
+            </div>
+          </div>
+          <div class="setting-row">
+            <label class="setting-label">Alert Sound</label>
+            <select class="setting-select" id="sound1">
+              <option value="beep">Beep</option>
+              <option value="chime">Chime</option>
+              <option value="alarm">Alarm</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Timer 2 Settings -->
+        <div class="setting-group">
+          <h3 class="setting-group-title timer-2-color">⬡ OVERLOAD</h3>
+          <div class="setting-row">
+            <label class="setting-label">Name</label>
+            <input class="setting-input" id="name2Input" type="text" placeholder="Overload" maxlength="12" />
+          </div>
+          <div class="setting-row">
+            <label class="setting-label">Mode</label>
+            <div class="toggle-group">
+              <button class="toggle-btn active" id="mode2Count" data-timer="2" data-mode="countup">Count Up</button>
+              <button class="toggle-btn" id="mode2Down" data-timer="2" data-mode="countdown">Count Down</button>
+            </div>
+          </div>
+          <div class="setting-row countdown-row" id="countdown2Row" style="display:none;">
+            <label class="setting-label">Duration</label>
+            <div class="time-inputs">
+              <div class="time-field">
+                <input class="setting-input time-input" id="h2" type="number" min="0" max="99" value="0"
+                  placeholder="00" />
+                <span class="time-unit">h</span>
+              </div>
+              <span class="time-sep">:</span>
+              <div class="time-field">
+                <input class="setting-input time-input" id="m2" type="number" min="0" max="59" value="5"
+                  placeholder="00" />
+                <span class="time-unit">m</span>
+              </div>
+              <span class="time-sep">:</span>
+              <div class="time-field">
+                <input class="setting-input time-input" id="s2" type="number" min="0" max="59" value="0"
+                  placeholder="00" />
+                <span class="time-unit">s</span>
+              </div>
+            </div>
+          </div>
+          <div class="setting-row">
+            <label class="setting-label">Alert Sound</label>
+            <select class="setting-select" id="sound2">
+              <option value="beep">Beep</option>
+              <option value="chime">Chime</option>
+              <option value="alarm">Alarm</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-save" id="saveSettings">SAVE SETTINGS</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
